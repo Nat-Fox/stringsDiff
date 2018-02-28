@@ -1,3 +1,4 @@
+
 import numpy as np
 
 
@@ -50,4 +51,14 @@ def string_edit_distance(ref=None, hyp=None):
 # deletions = cantidad de letras omitidas por string (considerando posicion y letra)
 # substitutions = cantidad de letras diferentes en la misma posicion
 
-print string_edit_distance('hola', 'holo')
+
+fileGoogleSpeech = open('call1-google.txt', 'r')
+textGoogleSpeech = fileGoogleSpeech.read()
+print textGoogleSpeech
+
+fileManual = open('call1-manual.txt', 'r')
+textManual = fileManual.read()
+print textManual
+
+#(1612, 1779, 30, 1614, 135)
+print string_edit_distance(textGoogleSpeech,textManual)
