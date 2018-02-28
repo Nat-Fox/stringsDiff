@@ -46,19 +46,32 @@ def string_edit_distance(ref=None, hyp=None):
     deletions, insertions, substitutions = e[-1, -1, :]
     return (tokens, edits, deletions, insertions, substitutions)
 
-# tokens = cantidad de letras
-# edits = cantidad de letras diferentes entre los strings (considerando posicion)
-# deletions = cantidad de letras omitidas por string (considerando posicion y letra)
-# substitutions = cantidad de letras diferentes en la misma posicion
+# CALL 1
+fileGoogleSpeechCall1 = open('call1-google.txt', 'r')
+textGoogleSpeech = fileGoogleSpeechCall1.read()
 
+fileManualCall1 = open('call1-manual.txt', 'r')
+textManual = fileManualCall1.read()
 
-fileGoogleSpeech = open('call1-google.txt', 'r')
-textGoogleSpeech = fileGoogleSpeech.read()
-print textGoogleSpeech
+#(3196, 1779, 1612, 28, 139)
+print string_edit_distance(textManual, textGoogleSpeech)
 
-fileManual = open('call1-manual.txt', 'r')
-textManual = fileManual.read()
-print textManual
+# CALL 2
+fileGoogleSpeechCall2 = open('call2-google.txt', 'r')
+textGoogleSpeechCall2 = fileGoogleSpeechCall2.read()
 
-#(1612, 1779, 30, 1614, 135)
-print string_edit_distance(textGoogleSpeech,textManual)
+fileManualCall2 = open('call2-manual.txt', 'r')
+textManualCall2 = fileManualCall2.read()
+
+# (5921, 4455, 4315, 12, 128)
+#print string_edit_distance(textManualCall2, textGoogleSpeechCall2)
+
+# 2
+flac2Google = open('flac2Google.txt', 'r')
+textFlac2Google = flac2Google.read()
+
+flac2Manual = open('flac2Manual.txt', 'r')
+textflac2Manual = flac2Manual.read()
+
+#(1025, 527, 447, 18, 62)
+#print string_edit_distance(textflac2Manual, textFlac2Google)
